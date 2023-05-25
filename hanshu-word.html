@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>素数-函数</title>
+</head>
+<body>
+<form action="">
+    <h1>判断素数</h1>
+    请输入一个整数：
+    <input type="text" id="int"><input type="button" value="判断" onclick="judge ()"><br>
+    判断结果：<input id="result"></input>
+</form>
+<script>
+function judge () {
+    var x = document.getElementById ("int").value;
+    var r = document.getElementById ("result");
+    if(isNaN (x) == true)  {
+        alert ("请输入合法数字!!!");
+    } else {
+        if(x == 1) {
+            r.value = "1既不是素数也不是合数";
+        } else if(x == 2)  {
+            r.value = "2是素数";
+        } else {
+            for(var i = 2; i < x; i++) {
+                if(x % i == 0) {
+                    r.value = x + "不是素数";
+                    break;
+                }
+            }
+            if(i == x) {
+                r.value = x + "是素数";
+            }
+        }
+    }
+}
+</script>
+</body>
+</html>
